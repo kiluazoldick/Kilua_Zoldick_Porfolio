@@ -49,50 +49,51 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Reglazed Studio',
-    title: 'CEO',
-    start: '2024',
-    end: 'Present',
-    link: 'https://ibelick.com',
+    company: 'Simtech 3D',
+    title: 'Web Developer',
+    start: 'December 2023 ',
+    end: 'May 2024',
+    link: 'https://simtech-3d.com/',
     id: 'work1',
   },
   {
-    company: 'Freelance',
-    title: 'Design Engineer',
-    start: '2022',
-    end: '2024',
-    link: 'https://ibelick.com',
+    company: 'Klass Computer',
+    title: 'Assistant Technician',
+    start: 'November 2022 ',
+    end: 'December 2023',
+    link: 'https://web.facebook.com/profile.php?id=61563111275769',
     id: 'work2',
   },
   {
     company: 'Freelance',
     title: 'Front-end Developer',
-    start: '2017',
+    start: '2021',
     end: 'Present',
-    link: 'https://ibelick.com',
+    link: 'https://github.com/kiluazoldick',
     id: 'work3',
   },
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-    description: 'How AI is changing the way we design',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
+    title: 'Why learn web development in 2025',
+    description:
+      'Discover why web development remains one of the most in-demand skills and how it can boost your career.',
+    link: '/blog/why_learn_web_development_in_2025',
     uid: 'blog-1',
   },
   {
-    title: 'Why I left my job to start my own company',
+    title: 'Creating Your First Project with Vue.js: A Step-by-Step To-Do List',
     description:
-      'A deep dive into my decision to leave my job and start my own company',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
+      'A simple and practical guide to creating a to-do list with Vue.js, from initial setup to final design.',
+    link: '/blog/create-your-first-project-with-vuejs-a-step-by-step-to-do-list',
     uid: 'blog-2',
   },
   {
-    title: 'What I learned from my first year of freelancing',
+    title: 'Mistakes to Avoid as a Junior Developer',
     description:
-      'A look back at my first year of freelancing and what I learned',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
+      'A look back at the most common mistakes beginners make in development and tips for overcoming them.',
+    link: '/blog/mistakes-to-avoid-as-a-junior-developer',
     uid: 'blog-3',
   },
 ]
@@ -100,20 +101,20 @@ export const BLOG_POSTS: BlogPost[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
+    link: 'https://github.com/kiluazoldick',
   },
   {
     label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    link: 'https://x.com/kilua_z0ldick',
   },
   {
-    label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
+    label: 'TikTok',
+    link: 'https://www.tiktok.com/@kilua_z0ldick',
   },
   {
     label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
+    link: 'https://www.instagram.com/kilua_z0ldick',
   },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'contactkiluazoldick@gmail.com'

@@ -1,0 +1,136 @@
+<Cover
+  src="https://github.com/kiluazoldick/Smart_Todo_List/blob/main/preview.png?raw=true"
+  alt="Image from the smart todo - from github"
+  caption="https://github.com/kiluazoldick/Smart_Todo_List/tree/main"
+/>
+
+# Creating Your First Project with Vue.js: A Step-by-Step To-Do List
+
+Vue.js is one of the most popular and accessible JavaScript frameworks for developing dynamic web interfaces. Creating a To-Do List is an excellent project to learn the basics while building something useful and tangible.
+
+---
+
+## Why Choose Vue.js?
+
+Vue.js stands out for its simplicity and flexibility, making it an ideal choice for both beginners and advanced developers. Here are a few reasons to adopt it:
+
+- **Easy to Get Started**: A simple script tag lets you get started.
+- **Reusable Components**: Structure your code into modular blocks.
+- **Powerful Reactivity**: Automatically updates the interface when data changes.
+
+## Installing Vue.js
+
+To get started, you have two main options:
+
+1. **Quick Start**: Simply add Vue.js to an HTML file via a CDN:
+
+```html
+<script src="https://unpkg.com/vue@3"></script>
+```
+
+2. **With Node.js and Vue CLI**:
+
+```bash
+npm install -g @vue/cli
+vue create todo-app
+cd todo-app
+npm run serve
+```
+
+## Basic Structure
+
+Here's the minimal structure of our project:
+
+```html
+<div id="app">
+  <h1>My To-Do List</h1>
+  <input v-model="newTask" @keyup.enter="addTask" placeholder="Add a task" />
+  <ul>
+    <li v-for="(task, index) in tasks" :key="index">
+      {{ task }} <button @click="deleteTask(index)">✖</button>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        newTask: '',
+        tasks: [],
+      }
+    },
+    methods: {
+      addTask() {
+        if (this.newTask.trim()) {
+          this.tasks.push(this.newTask)
+          this.newTask = ''
+        }
+      },
+      deleteTask(index) {
+        this.tasks.splice(index, 1)
+      },
+    },
+  }).mount('#app')
+</script>
+```
+
+## Code Explanation
+
+- **`v-model`**: Binds the input to the `newTask` variable. - **`v-for`**: Allows you to repeat list items.
+- **`@click` and `@keyup.enter`**: Handle events for adding or removing a task.
+
+## Design Improvements
+
+Let's add some style:
+
+```html
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  #app {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  input {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  button {
+    margin-left: 5px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+```
+
+##Link demo and code
+
+- [Demo](https://smart-todo-list-rho.vercel.app/)
+- [Code](https://github.com/kiluazoldick/Smart_Todo_List/tree/main)
+
+## Conclusion
+
+Congratulations! You've just created a working to-do list with Vue.js. This simple project lays the foundation for building more complex applications and better understanding responsiveness.
+
+---
+
+### Resources for further learning
+
+- [Official Vue.js Documentation](https://vuejs.org/)
+- [Vue Components Tutorial](https://vuejs.org/guide/components/)
+- [Practical Exercises on CodePen](https://codepen.io/)
+
+---
+
+### A Coding Playlist?
+
+Boost your productivity with the "Vue Vibes" playlist on Spotify. 🎧
