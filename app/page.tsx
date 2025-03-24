@@ -151,7 +151,7 @@ export default function Personal() {
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-5 text-lg font-medium">
-          My Tech Stack Next.js Vue.js Figma Node.js
+          My Tech Stack Next.js Vue.js Node.js Figma
         </h3>
         <div className="flex items-center justify-start space-x-3">
           <i className="ri-nextjs-line text-5xl text-zinc-600 dark:text-zinc-400"></i>
