@@ -41,7 +41,7 @@ const TRANSITION_SECTION = {
 }
 
 type ProjectVideoProps = {
-  src: string
+  readonly src: string
 }
 
 function ProjectVideo({ src }: ProjectVideoProps) {
@@ -94,8 +94,8 @@ function MagneticSocialLink({
   children,
   link,
 }: {
-  children: React.ReactNode
-  link: string
+  readonly children: React.ReactNode
+  readonly link: string
 }) {
   return (
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
