@@ -23,7 +23,7 @@ import {
 import { Hero } from './components/hero'
 import { Ventures } from './components/ventures'
 import { GithubPinned } from './components/github-pinned'
-import { GithubActivity } from './components/github-activity'
+import { GitHubContributions } from './components/github-contributions'
 import { Cta } from './components/cta'
 
 const VARIANTS_CONTAINER = {
@@ -197,7 +197,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <GithubActivity />
+        <GitHubContributions />
       </motion.div>
 
       <motion.section
