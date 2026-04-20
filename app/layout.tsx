@@ -12,8 +12,25 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Kilua Zoldick ',
-  description: 'built with Next.js 15, React 19 and Motion-Primitives.',
+  title: 'Kilua Zoldick — Front-End Developer & Founder',
+  description:
+    'Portfolio of Kilua Zoldick — Front-End Developer, UI/UX Designer and Founder of Zoldick Entreprise. Based in Douala, Cameroon.',
+  keywords: [
+    'Kilua Zoldick',
+    'Front-End Developer',
+    'UI/UX Designer',
+    'Zoldick Entreprise',
+    'CorrigeTesCours',
+    'Next.js',
+    'Cameroon developer',
+  ],
+  authors: [{ name: 'Kilua Zoldick' }],
+  openGraph: {
+    title: 'Kilua Zoldick — Front-End Developer & Founder',
+    description:
+      'Front-End Developer, UI/UX Designer and CEO of Zoldick Entreprise. I design and build modern web products.',
+    type: 'website',
+  },
 }
 
 const geist = Geist({

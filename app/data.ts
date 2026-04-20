@@ -27,6 +27,56 @@ type SocialLink = {
   link: string
 }
 
+type Venture = {
+  name: string
+  role: string
+  description: string
+  link: string
+  tag: string
+  id: string
+}
+
+export const GITHUB_USERNAME = 'kiluazoldick'
+
+export const CV_URL = '/cv.pdf'
+
+export const HERO = {
+  name: 'Kilua Zoldick',
+  headline: 'Front-End Developer, UI/UX Designer & Entrepreneur.',
+  subline:
+    'I design and build modern web products — from pixel-perfect interfaces to full SaaS platforms. Currently leading Zoldick Entreprise and shipping tools that make real people more productive.',
+  location: 'Douala, Cameroon',
+  status: 'Available for freelance & collaborations',
+}
+
+export const VENTURES: Venture[] = [
+  {
+    name: 'Zoldick Entreprise',
+    role: 'Founder & CEO',
+    description:
+      'A digital company building web apps, SaaS and management tools for businesses across Africa. We help teams ship faster with clean, modern software.',
+    link: 'https://www.zoldickentreprise.com/',
+    tag: 'Company',
+    id: 'venture-zoldick',
+  },
+  {
+    name: 'CorrigeTesCours',
+    role: 'Creator',
+    description:
+      'A learning app that helps students correct, understand and master their courses. Built to turn messy notes into clear, structured knowledge.',
+    link: 'https://corrigetescours.vercel.app/',
+    tag: 'Product',
+    id: 'venture-corrige',
+  },
+]
+
+export const PINNED_REPOS: string[] = [
+  'BookShelf',
+  'synerg',
+  'IRELEC',
+  'Smart_Todo_List',
+]
+
 export const PROJECTS: Project[] = [
   {
     name: 'Smart Todo List',
@@ -49,9 +99,17 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    company: 'Zoldick Entreprise',
+    title: 'Founder & CEO',
+    start: '2025',
+    end: 'Present',
+    link: 'https://www.zoldickentreprise.com/',
+    id: 'work0',
+  },
+  {
     company: 'Simtech 3D',
     title: 'Web Developer',
-    start: 'December 2023 ',
+    start: 'December 2023',
     end: 'May 2024',
     link: 'https://simtech-3d.com/',
     id: 'work1',
@@ -59,7 +117,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Klass Computer',
     title: 'Assistant Technician',
-    start: 'November 2022 ',
+    start: 'November 2022',
     end: 'December 2023',
     link: 'https://web.facebook.com/profile.php?id=61563111275769',
     id: 'work2',
