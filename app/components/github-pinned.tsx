@@ -3,6 +3,7 @@
 import useSWR from 'swr'
 import { ArrowUpRight, GitFork, Star } from 'lucide-react'
 import { GITHUB_USERNAME, PINNED_REPOS } from '../data'
+import { useI18n } from '../i18n/language-provider'
 
 type Repo = {
   name: string
@@ -78,6 +79,7 @@ function RepoSkeleton() {
 }
 
 export function GithubPinned() {
+  const { t } = useI18n()
   const { data, isLoading } = useSWR<Repo[]>(
     `/api/github/pinned?user=${GITHUB_USERNAME}&repos=${PINNED_REPOS.join(',')}`,
     fetcher,
@@ -87,7 +89,7 @@ export function GithubPinned() {
   return (
     <section>
       <div className="mb-5 flex items-baseline justify-between">
-        <h3 className="text-lg font-medium">Pinned on GitHub</h3>
+        <h3 className="text-lg font-medium">{t.pinned.title}</h3>
         <a
           href={`https://github.com/${GITHUB_USERNAME}`}
           target="_blank"

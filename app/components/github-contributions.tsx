@@ -3,6 +3,7 @@
 import useSWR from 'swr'
 import { useMemo } from 'react'
 import { GITHUB_USERNAME } from '@/app/data'
+import { useI18n } from '@/app/i18n/language-provider'
 
 type Contribution = {
   date: string
@@ -41,6 +42,7 @@ const MONTH_LABELS = [
 ]
 
 export function GitHubContributions() {
+  const { t } = useI18n()
   const { data, isLoading, error } = useSWR<ApiResponse>(
     '/api/github/contributions',
     fetcher,
@@ -87,13 +89,13 @@ export function GitHubContributions() {
   return (
     <section>
       <div className="mb-5 flex items-end justify-between gap-4">
-        <h3 className="text-lg font-medium">Activity</h3>
+        <h3 className="text-lg font-medium">{t.activity.title}</h3>
         {data && !isLoading && (
           <p className="text-xs text-zinc-500 dark:text-zinc-400">
             <span className="font-medium text-zinc-700 dark:text-zinc-300">
               {data.total.toLocaleString()}
             </span>{' '}
-            contributions in the last year
+            {t.activity.subtitle}
           </p>
         )}
       </div>
@@ -101,13 +103,13 @@ export function GitHubContributions() {
       <div className="rounded-xl border border-zinc-200/70 bg-zinc-50/50 p-4 dark:border-zinc-800/70 dark:bg-zinc-900/30">
         {isLoading && (
           <div className="flex h-[140px] items-center justify-center text-xs text-zinc-500 dark:text-zinc-400">
-            Loading activity...
+            {t.activity.loading}
           </div>
         )}
 
         {error && (
           <div className="flex h-[140px] items-center justify-center text-xs text-zinc-500 dark:text-zinc-400">
-            Could not load activity.
+            {t.activity.error}
           </div>
         )}
 
@@ -179,7 +181,7 @@ export function GitHubContributions() {
 
               {/* Legend */}
               <div className="mt-3 flex items-center justify-end gap-2 text-[10px] text-zinc-500 dark:text-zinc-400">
-                <span>Less</span>
+                <span>{t.activity.less}</span>
                 {[0, 1, 2, 3, 4].map((lvl) => (
                   <span
                     key={lvl}
@@ -187,14 +189,14 @@ export function GitHubContributions() {
                     aria-hidden="true"
                   />
                 ))}
-                <span>More</span>
+                <span>{t.activity.more}</span>
               </div>
             </div>
           </div>
         )}
 
         <p className="mt-3 text-xs text-zinc-500 dark:text-zinc-400">
-          Live from{' '}
+          {t.activity.liveFrom}{' '}
           <a
             href={`https://github.com/${GITHUB_USERNAME}`}
             target="_blank"
