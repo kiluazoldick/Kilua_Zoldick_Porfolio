@@ -31,6 +31,12 @@ export const metadata: Metadata = {
       'Front-End Developer, UI/UX Designer and CEO of Zoldick Entreprise. I design and build modern web products.',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kilua Zoldick — Front-End Developer & Founder',
+    description:
+      'Front-End Developer, UI/UX Designer and CEO of Zoldick Entreprise.',
+  },
 }
 
 const geist = Geist({
