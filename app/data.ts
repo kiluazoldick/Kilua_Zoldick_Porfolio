@@ -64,7 +64,7 @@ export const VENTURES: Venture[] = [
     role: 'Creator',
     description:
       'A learning app that helps students correct, understand and master their courses. Built to turn messy notes into clear, structured knowledge.',
-    link: 'https://corrigetescours.vercel.app/',
+    link: 'https://corrigetescours.com',
     tag: 'Product',
     id: 'venture-corrige',
   },
