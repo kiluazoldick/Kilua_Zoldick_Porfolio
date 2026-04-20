@@ -20,13 +20,18 @@ import {
   EMAIL,
   SOCIAL_LINKS,
 } from './data'
+import { Hero } from './components/hero'
+import { Ventures } from './components/ventures'
+import { GithubPinned } from './components/github-pinned'
+import { GitHubContributions } from './components/github-contributions'
+import { Cta } from './components/cta'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
     },
   },
 }
@@ -101,6 +106,8 @@ function MagneticSocialLink({
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
         href={link}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
       >
         {children}
@@ -127,22 +134,99 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-24"
+      className="space-y-20"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
     >
+      <motion.div
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <Hero />
+      </motion.div>
+
+      <motion.div
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <Ventures />
+      </motion.div>
+
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex-1">
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Passionate about web development and design, I create modern,
-            interactive, and user-friendly interfaces. My goal is to build
-            high-performance and aesthetically pleasing solutions, whether for
-            websites, applications, or e-learning platforms.
-          </p>
+        <h3 className="mb-5 text-lg font-medium">Tech stack</h3>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <i className="ri-nextjs-line text-2xl"></i>
+            <span className="text-sm">Next.js</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <i className="ri-reactjs-line text-2xl"></i>
+            <span className="text-sm">React</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <i className="ri-vuejs-line text-2xl"></i>
+            <span className="text-sm">Vue.js</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <i className="ri-nodejs-line text-2xl"></i>
+            <span className="text-sm">Node.js</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <i className="ri-tailwind-css-line text-2xl"></i>
+            <span className="text-sm">Tailwind</span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+            <i className="ri-figma-line text-2xl"></i>
+            <span className="text-sm">Figma</span>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.div
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <GithubPinned />
+      </motion.div>
+
+      <motion.div
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <GitHubContributions />
+      </motion.div>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Selected projects</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                <ProjectVideo src={project.video} />
+              </div>
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </motion.section>
 
@@ -150,22 +234,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">
-          My Tech Stack Next.js Vue.js Node.js Figma
-        </h3>
-        <div className="flex items-center justify-start space-x-3">
-          <i className="ri-nextjs-line text-5xl text-zinc-600 dark:text-zinc-400"></i>
-          <i className="ri-vuejs-line text-5xl text-zinc-600 dark:text-zinc-400"></i>
-          <i className="ri-nodejs-line text-5xl text-zinc-600 dark:text-zinc-400"></i>
-          <i className="ri-figma-line text-5xl text-zinc-600 dark:text-zinc-400"></i>
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
+        <h3 className="mb-5 text-lg font-medium">Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
             <a
@@ -203,36 +272,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog</h3>
+        <h3 className="mb-3 text-lg font-medium">Writing</h3>
         <div className="flex flex-col space-y-0">
           <AnimatedBackground
             enableHover
@@ -263,6 +303,13 @@ export default function Personal() {
           </AnimatedBackground>
         </div>
       </motion.section>
+
+      <motion.div
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <Cta />
+      </motion.div>
 
       <motion.section
         variants={VARIANTS_SECTION}

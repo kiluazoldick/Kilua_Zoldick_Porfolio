@@ -21,10 +21,10 @@ export function Header() {
           as="p"
           preset="fade"
           per="char"
-          className="text-zinc-600 dark:text-zinc-500"
+          className="text-sm text-zinc-600 dark:text-zinc-500"
           delay={0.5}
         >
-          Front-End Developer | UI/UX Designer | Content Creator
+          Front-End Developer · CEO @ Zoldick Entreprise
         </TextEffect>
       </div>
     </header>
