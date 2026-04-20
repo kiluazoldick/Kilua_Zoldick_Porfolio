@@ -25,7 +25,6 @@ import { Ventures } from './components/ventures'
 import { GithubPinned } from './components/github-pinned'
 import { GitHubContributions } from './components/github-contributions'
 import { Cta } from './components/cta'
-import { useI18n } from './i18n/language-provider'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -133,7 +132,6 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
-  const { t } = useI18n()
   return (
     <motion.main
       className="space-y-20"
@@ -159,7 +157,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">{t.stack}</h3>
+        <h3 className="mb-5 text-lg font-medium">Tech stack</h3>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
           <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
             <i className="ri-nextjs-line text-2xl"></i>
@@ -206,7 +204,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">{t.projects.title}</h3>
+        <h3 className="mb-5 text-lg font-medium">Selected projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
@@ -224,7 +222,7 @@ export default function Personal() {
                   <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
                 </a>
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {t.projects.items[project.id] ?? project.description}
+                  {project.description}
                 </p>
               </div>
             </div>
@@ -236,41 +234,37 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">{t.experience.title}</h3>
+        <h3 className="mb-5 text-lg font-medium">Experience</h3>
         <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => {
-            const end =
-              job.end === 'Present' ? t.experience.present : job.end
-            return (
-              <a
-                className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-                href={job.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={job.id}
-              >
-                <Spotlight
-                  className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-                  size={64}
-                />
-                <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                  <div className="relative flex w-full flex-row justify-between">
-                    <div>
-                      <h4 className="font-normal dark:text-zinc-100">
-                        {t.experience.items[job.id] ?? job.title}
-                      </h4>
-                      <p className="text-zinc-500 dark:text-zinc-400">
-                        {job.company}
-                      </p>
-                    </div>
-                    <p className="text-zinc-600 dark:text-zinc-400">
-                      {job.start} - {end}
+          {WORK_EXPERIENCE.map((job) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={job.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={job.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-row justify-between">
+                  <div>
+                    <h4 className="font-normal dark:text-zinc-100">
+                      {job.title}
+                    </h4>
+                    <p className="text-zinc-500 dark:text-zinc-400">
+                      {job.company}
                     </p>
                   </div>
+                  <p className="text-zinc-600 dark:text-zinc-400">
+                    {job.start} - {job.end}
+                  </p>
                 </div>
-              </a>
-            )
-          })}
+              </div>
+            </a>
+          ))}
         </div>
       </motion.section>
 
@@ -278,7 +272,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-3 text-lg font-medium">{t.writing.title}</h3>
+        <h3 className="mb-3 text-lg font-medium">Writing</h3>
         <div className="flex flex-col space-y-0">
           <AnimatedBackground
             enableHover
@@ -289,26 +283,23 @@ export default function Personal() {
               duration: 0.2,
             }}
           >
-            {BLOG_POSTS.map((post) => {
-              const tr = t.writing.items[post.uid]
-              return (
-                <Link
-                  key={post.uid}
-                  className="-mx-3 rounded-xl px-3 py-3"
-                  href={post.link}
-                  data-id={post.uid}
-                >
-                  <div className="flex flex-col space-y-1">
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {tr?.title ?? post.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {tr?.description ?? post.description}
-                    </p>
-                  </div>
-                </Link>
-              )
-            })}
+            {BLOG_POSTS.map((post) => (
+              <Link
+                key={post.uid}
+                className="-mx-3 rounded-xl px-3 py-3"
+                href={post.link}
+                data-id={post.uid}
+              >
+                <div className="flex flex-col space-y-1">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {post.title}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {post.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </AnimatedBackground>
         </div>
       </motion.section>
@@ -324,9 +315,9 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">{t.connect.title}</h3>
+        <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          {t.connect.intro}{' '}
+          Feel free to contact me at{' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>
