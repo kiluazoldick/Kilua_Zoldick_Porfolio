@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 type Language = 'fr' | 'en'
 const translations = {
@@ -13,6 +13,17 @@ const LocaleContext = createContext<{ language: Language; setLanguage: (language
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>('fr')
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem('portfolio-language')
+    if (saved === 'fr' || saved === 'en') setLanguage(saved)
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = language
+    window.localStorage.setItem('portfolio-language', language)
+  }, [language])
+
   const t = (key: TranslationKey) => translations[language][key]
   return <LocaleContext.Provider value={{ language, setLanguage, t }}>{children}</LocaleContext.Provider>
 }
