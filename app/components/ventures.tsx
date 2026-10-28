@@ -1,55 +1,8 @@
 'use client'
 
 import { ArrowUpRight } from 'lucide-react'
-import { Spotlight } from '@/components/ui/spotlight'
 import { VENTURES } from '../data'
 
 export function Ventures() {
-  return (
-    <section id="ventures" className="scroll-mt-20">
-      <div className="mb-5 flex items-baseline justify-between">
-        <h3 className="text-lg font-medium">Currently building</h3>
-        <span className="text-xs text-zinc-500 dark:text-zinc-500">
-          {VENTURES.length} active
-        </span>
-      </div>
-
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {VENTURES.map((venture) => (
-          <a
-            key={venture.id}
-            href={venture.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-          >
-            <Spotlight
-              className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-              size={64}
-            />
-            <div className="relative flex h-full flex-col justify-between gap-4 rounded-[15px] bg-white p-5 dark:bg-zinc-950">
-              <div className="flex items-start justify-between gap-2">
-                <span className="inline-flex items-center rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
-                  {venture.tag}
-                </span>
-                <ArrowUpRight className="h-4 w-4 text-zinc-400 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-zinc-900 dark:group-hover:text-zinc-50" />
-              </div>
-
-              <div className="space-y-1.5">
-                <h4 className="font-medium text-zinc-900 dark:text-zinc-50">
-                  {venture.name}
-                </h4>
-                <p className="text-xs text-zinc-500 dark:text-zinc-500">
-                  {venture.role}
-                </p>
-                <p className="pt-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                  {venture.description}
-                </p>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-  )
+  return <section id="work" className="scroll-mt-10"><div className="mb-6 flex items-end justify-between"><div><p className="mb-2 text-xs uppercase tracking-[0.2em] text-[var(--accent)]">Sélection</p><h2 className="text-2xl font-medium tracking-tight">Ce que je construis</h2></div><span className="text-xs text-[var(--muted)]">01 — 04</span></div><div className="grid gap-3 sm:grid-cols-2">{VENTURES.map((venture, index) => <a key={venture.id} href={venture.link} target="_blank" rel="noopener noreferrer" className={`group flex min-h-[235px] flex-col justify-between rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-5 transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)] ${index === 0 ? 'sm:col-span-2 sm:min-h-[270px] sm:p-7' : ''}`}><div className="flex items-start justify-between"><span className="rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-[var(--accent)]">{venture.tag}</span><ArrowUpRight className="h-4 w-4 text-[var(--muted)] transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[var(--accent)]" /></div><div><p className="mb-2 text-xs text-[var(--muted)]">{venture.role}</p><h3 className={`${index === 0 ? 'text-3xl sm:text-4xl' : 'text-xl'} font-medium tracking-tight`}>{venture.name}</h3><p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">{venture.description}</p></div></a>)}</div></section>
 }
