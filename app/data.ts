@@ -68,6 +68,15 @@ export const VENTURES: Venture[] = [
     tag: 'Product',
     id: 'venture-corrige',
   },
+  {
+    name: 'eBook Cameroun',
+    role: 'Co-Founder',
+    description:
+      'Au détour d’un trajet, entre deux rendez-vous ou quand la ville s’apaise : une histoire vous attend. Des voix d’ici, à lire doucement, sur l’écran que vous avez sous la main.',
+    link: 'https://ebookcameroun.com',
+    tag: 'Product',
+    id: 'venture-ebook',
+  },
 ]
 
 export const PINNED_REPOS: string[] = [
