@@ -14,9 +14,9 @@ export const HERO = {
   status: 'Disponible pour missions & collaborations',
 }
 export const VENTURES: Venture[] = [
-  { name: 'M. Impôt', role: 'Produit phare · mimpot.com', description: 'Une plateforme de ressources juridiques et fiscales pensée pour rendre le droit plus accessible au Cameroun : documents, vidéos éducatives, recherche et veille réunis au même endroit.', link: 'https://mimpot.com', tag: 'EdTech / LegalTech', id: 'venture-mimpot' },
+  { name: 'M. Impôt', role: 'Projet client · conception digitale', description: 'Une plateforme de ressources juridiques et fiscales pensée pour rendre le droit plus accessible au Cameroun : documents, vidéos éducatives, recherche et veille réunis au même endroit.', link: 'https://mimpot.com', tag: 'EdTech / LegalTech', id: 'venture-mimpot' },
   { name: 'Zoldick Entreprise', role: 'Fondateur & CEO', description: 'Une entreprise digitale qui accompagne les organisations dans la conception de sites, SaaS et outils métier modernes, avec une attention particulière portée à la clarté et aux résultats.', link: 'https://www.zoldickentreprise.com/', tag: 'Studio', id: 'venture-zoldick' },
-  { name: 'eBook Cameroun', role: 'Co-fondateur', description: 'Une bibliothèque numérique qui met en lumière les auteurs et les histoires d’ici. Une expérience de lecture simple, locale et accessible sur tous les écrans.', link: 'https://ebookcameroun.com', tag: 'Culture / Média', id: 'venture-ebook' },
+  { name: 'eBook Cameroun', role: 'Fondateur & créateur', description: 'Une bibliothèque numérique qui met en lumière les auteurs et les histoires d’ici. Une expérience de lecture simple, locale et accessible sur tous les écrans.', link: 'https://ebookcameroun.com', tag: 'Culture / Média', id: 'venture-ebook' },
   { name: 'CorrigeTesCours', role: 'Créateur', description: 'Une app pédagogique qui aide les étudiants à comprendre, corriger et maîtriser leurs cours grâce à une expérience structurée et pratique.', link: 'https://corrigetescours.com', tag: 'Éducation', id: 'venture-corrige' },
 ]
 export const PINNED_REPOS = ['BookShelf', 'synerg', 'IRELEC', 'Smart_Todo_List']
